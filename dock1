@@ -1,0 +1,31 @@
+
+# ---- Base Node ----
+FROM ubuntu AS base
+# install the core dependencies
+RUN apt-get install -y my package list
+# set working directory
+WORKDIR /app
+# copy project file
+COPY Gemfile .
+COPY Gemfile.lock
+
+# ---- Dependencies ----
+FROM base AS dependencies
+# install dependencies
+RUN bundle install --without development test
+ 
+# ---- Test ----
+# run linters, setup and tests
+FROM dependencies AS test
+COPY . .
+RUN  bundle install --without development && rspec
+
+# ---- Release ----
+FROM base AS release
+# copy production node_modules
+COPY --from=dependencies gems ./gems
+# copy app sources
+COPY . .
+# expose port and define CMD
+EXPOSE 5000
+CMD ["app", "start"]
