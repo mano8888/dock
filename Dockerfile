@@ -10,7 +10,7 @@ COPY dock1 usr/local/nginx/html
 ENTRYPOINT service nginx start && bash
 
 FROM jenkins
-USER manoj
+USER root
 ENV JAVA_OPTS="-Xmx4096m"
 ENV JENKINS_OPTS=" --handlerCountMax=200"
 RUN mkdir /var/log/jenkins-log
