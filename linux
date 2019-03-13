@@ -1,0 +1,19 @@
+ps -ef ---to fond everything like files/directories/springs/services
+w------to show the content of all the info
+cat /etc/shells----------it shows the shells
+echo $SHELL
+free -m-----it shows the memory in mega bytes
+free -g-----it shows the memory in giga bytes
+fdisk -l -----it shows all the drives were connected to the LS
+vmstat -a--------it shows the virtualmachine static 
+vmstat -t--------==============================but in time.
+ls -l -a------it shows the all the list of the content and also the hidden files
+cal ----it shows the calender
+env---it shows the env ls -l /etc/passwd
+ls -l /etc/shadow
+grep ----fine the services files/spring/directories
+grep -c------find the file count
+grep -n---which line it was
+cat dock1 > dock2 it copies the o/p from the dock1 to the dock2 the o/p will becomes the i/p here
+ps aux----------find the status of process
+du -sh calculate the size of folder
